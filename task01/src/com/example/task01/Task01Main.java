@@ -10,6 +10,8 @@ public class Task01Main {
     }
 
     static void codeWithNPE() {
+        Object obj = null;
+        obj.toString();
         //todo напишите здесь свою корректную реализацию этого метода, вместо существующей
     }
 }
