@@ -33,21 +33,21 @@ public class Tests {
         String[] args = {"abcd"};
         Task05Main.main(args);
         String actual = out.toString();
-        Assert.assertEquals("файл \"abcd\" не найден\n", actual);
+        Assert.assertEquals("файл \"" + args[0] + "\" не найден\n", actual);
     }
 
     @Test
     public void testMainNotDeclareThrows() throws Exception {
         MethodDeclaration method = new CodeParser("task05", Task05Main.class).findSingleMethod("main");
         NodeList thrownExceptionsList = method.getThrownExceptions();
-        Assert.assertEquals("method main does not declare throws",0, thrownExceptionsList.size());
+        Assert.assertEquals("method main does not declare throws", 0, thrownExceptionsList.size());
     }
 
     @Test
     public void testMainContainsTwoCatchClauses() throws Exception {
-        MethodDeclaration method = new CodeParser("task05", Task05Main.class).findSingleMethod("main");
+        MethodDeclaration method = new CodeParser("task05", Task05Main.class).findSingleMethod("readFile");
         List<CatchClause> catchClauses = method.findAll(CatchClause.class);
-        Assert.assertEquals("method main body contains 2 catch clauses", 2, catchClauses.size());
+        Assert.assertEquals("method readFile body contains 2 catch clauses", 2, catchClauses.size());
 
         CatchClause firstCatchClause = catchClauses.get(0);
         Assert.assertTrue("first catch clause should be FileNotFoundException",
