@@ -45,7 +45,7 @@ public class Tests {
 
     @Test
     public void testMainContainsTwoCatchClauses() throws Exception {
-        MethodDeclaration method = new CodeParser("task05", Task05Main.class).findSingleMethod("main");
+        MethodDeclaration method = new CodeParser("task05", Task05Main.class).findSingleMethod("readFile");
         List<CatchClause> catchClauses = method.findAll(CatchClause.class);
         Assert.assertEquals("method main body contains 2 catch clauses", 2, catchClauses.size());
 
