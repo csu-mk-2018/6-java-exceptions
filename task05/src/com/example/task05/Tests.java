@@ -30,7 +30,7 @@ public class Tests {
     }
 
     @Test
-    public void testCatchFileNotFound() {
+    public void testCatchFileNotFound() throws IOException {
         String[] args = {"abcd"};
         try {
             Task05Main.main(args);
