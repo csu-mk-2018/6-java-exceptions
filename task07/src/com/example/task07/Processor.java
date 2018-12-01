@@ -4,7 +4,8 @@ public class Processor {
 
     public Object process() throws Exception {
         //todo вы можете заменить реализацию этого метода для ручного дебага
-        return null;
+        throw new RuntimeException();
+        //return null;
     }
 
 }

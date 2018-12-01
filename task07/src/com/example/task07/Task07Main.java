@@ -7,6 +7,8 @@ public class Task07Main {
     public static final String NONE = "none";
 
     public static void main(String[] args) {
+        //processor = new Processor();
+        //System.out.println(getExceptionType());
     }
 
     public Processor processor;
@@ -16,9 +18,14 @@ public class Task07Main {
         try {
             processor.process(); //todo вы можете заменить реализацию этого метода для ручного дебага
         } catch (Exception e) {
-
+            if (e instanceof RuntimeException) {
+                return UNCHECKED;
+            }
+            else {
+                return CHECKED;
+            }
         }
-        return null;
+        return NONE;
     }
 
 }
