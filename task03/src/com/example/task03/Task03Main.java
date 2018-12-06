@@ -1,7 +1,7 @@
 package com.example.task03;
 
 public class Task03Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
         // например вот так:
         /*
@@ -10,7 +10,7 @@ public class Task03Main {
     }
 
     //todo напишите здесь свою корректную реализацию задания
-    public static void throwCheckedException() {
-
+    public static void throwCheckedException() throws Exception {
+        throw new Exception("My Exception");
     }
 }
