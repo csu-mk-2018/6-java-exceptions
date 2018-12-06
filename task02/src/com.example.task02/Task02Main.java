@@ -11,7 +11,7 @@ public class Task02Main {
     }
 
     static String getSeason(int monthNumber) {
-        if (monthNumber == 1 || monthNumber == 2 || monthNumber == 12) {
+        if (monthNumber == 12 || monthNumber == 1 || monthNumber == 2) {
             return "зима";
         } else if (monthNumber >= 3 && monthNumber <= 5) {
             return "весна";
