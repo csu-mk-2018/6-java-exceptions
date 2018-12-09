@@ -14,7 +14,7 @@ public class Task02Main {
     static String getSeason(int monthNumber) {
         String season;
 
-        switch (monthNumber){
+        switch (monthNumber) {
             case 12:
             case 1:
             case 2:
