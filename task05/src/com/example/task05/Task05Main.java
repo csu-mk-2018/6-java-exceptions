@@ -17,12 +17,11 @@ public class Task05Main {
             System.out.print(String.format("файл \"%s\" не найден\n", pathToFile));
         }
         catch (IOException e) {
-            System.out.print(String.format("произошла ошибка при чтении файла \"%s\"\n", pathToFile));
+            System.out.println(String.format("произошла ошибка при чтении файла \"%s\"", pathToFile));
         }
     }
 
     public static String readFile(String pathToFile) throws IOException {
-        try {
             FileReader fileReader = new FileReader(pathToFile);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             StringBuilder stringBuilder = new StringBuilder();
@@ -33,11 +32,5 @@ public class Task05Main {
             }
             bufferedReader.close();
             return stringBuilder.toString();
-        } catch (FileNotFoundException e) {
-            return "файл \"" + pathToFile + "\" не найден\n";
-        } catch (IOException e) {
-            return "произошла ошибка при чтении файла \"" + pathToFile + "\"";
-        }
-
     }
 }
