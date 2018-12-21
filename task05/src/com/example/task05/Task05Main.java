@@ -8,13 +8,18 @@ import java.io.IOException;
 public class Task05Main {
     public static void main(String[] args) {
         String pathToFile = args[0]; // "/home/user/file.txt"
-
-        String s = readFile(pathToFile);
-        System.out.println(s);
+        try {
+            String s = readFile(pathToFile);
+            System.out.println(s);
+        }catch (FileNotFoundException e) {
+            System.out.println("файл " + pathToFile + " не найден");
+        } catch (IOException e) {
+            System.out.println("произошла ошибка при чтении файла" + pathToFile);
+        }
     }
 
-    public static String readFile(String pathToFile) {
-        try {
+    public static String readFile(String pathToFile) throws IOException{
+
             FileReader fileReader = new FileReader(pathToFile);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -27,10 +32,5 @@ public class Task05Main {
             bufferedReader.close();
 
             return stringBuilder.toString();
-        } catch (FileNotFoundException e) {
-           return "файл " + pathToFile + " не найден";
-        } catch (IOException e) {
-            return "произошла ошибка при чтении файла" + pathToFile;
-        }
     }
 }
