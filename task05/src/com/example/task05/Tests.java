@@ -48,7 +48,7 @@ public class Tests {
     public void testMainNotDeclareThrows() throws Exception {
         MethodDeclaration method = new CodeParser("task05", Task05Main.class).findSingleMethod("main");
         NodeList thrownExceptionsList = method.getThrownExceptions();
-        Assert.assertEquals("method main does not declare throws",0, thrownExceptionsList.size());
+        Assert.assertEquals("method main does not declare throws", 0, thrownExceptionsList.size());
     }
 
     @Test
