@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.List;
 
@@ -31,9 +32,16 @@ public class Tests {
     @Test
     public void testCatchFileNotFound() {
         String[] args = {"abcd"};
-        Task05Main.main(args);
-        String actual = out.toString();
-        Assert.assertEquals("файл \"abcd\" не найден\n", actual);
+        try {
+            Task05Main.main(args);
+            String actual = out.toString();
+            Assert.assertEquals("файл \"abcd\" не найден\n", actual);
+        } catch (Exception e) {
+            if (e instanceof IOException) {
+                throw new AssertionError("метод main не должен бросать исключение IOException", e);
+            }
+        }
+
     }
 
     @Test
