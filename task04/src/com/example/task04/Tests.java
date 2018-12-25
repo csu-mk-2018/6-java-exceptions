@@ -26,7 +26,8 @@ public class Tests {
         try {
             Task04Main.getSeason(-5);
             Assert.fail("fail because exception was not thrown");
-        } catch (MyException e) {
+        } catch (Exception e) {
+            Assert.assertTrue("Expected exception class is MyException", "MyException".equals(e.getClass().getSimpleName()));
             Assert.assertEquals("monthNumber -5 is invalid, month number should be between 1..12", e.getMessage());
         }
     }
@@ -36,7 +37,9 @@ public class Tests {
         try {
             Task04Main.getSeason(42);
             Assert.fail("fail because exception was not thrown");
-        } catch (MyException e) {
+        } catch (Exception e) {
+            System.out.println(e.getClass().getName());
+            Assert.assertTrue("Expected exception class is MyException", "MyException".equals(e.getClass().getSimpleName()));
             Assert.assertEquals("monthNumber 42 is invalid, month number should be between 1..12", e.getMessage());
         }
     }
@@ -46,7 +49,8 @@ public class Tests {
         try {
             Task04Main.getSeason(0);
             Assert.fail("fail because exception was not thrown");
-        } catch (MyException e) {
+        } catch (Exception e) {
+            Assert.assertTrue("Expected exception class is MyException", "MyException".equals(e.getClass().getSimpleName()));
             Assert.assertEquals("monthNumber 0 is invalid, month number should be between 1..12", e.getMessage());
         }
     }
